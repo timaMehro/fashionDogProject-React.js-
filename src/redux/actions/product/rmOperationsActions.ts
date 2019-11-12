@@ -1,0 +1,42 @@
+import { Dispatch } from "redux";
+import { GetAllDataOptions } from "../../../utils/types";
+import { apiAction } from "../app/apiActions";
+
+export const RM_OPERAITION_GETALL_REQUEST = "@app/RM_OPERAITION_GETALL_REQUEST";
+export const RM_OPERAITION_GETALL_SUCCESS = "@app/RM_OPERAITION_GETALL_SUCCESS";
+export const RM_OPERAITION_GETALL_FAILURE = "@app/RM_OPERAITION_GETALL_FAILURE";
+
+export function getAll(options?: GetAllDataOptions) {
+
+
+    return (dispatch: Dispatch) => {
+        // We dispatch requestLogin to kickoff the call to the API
+        dispatch(request());
+        dispatch(apiAction({
+            data: options,
+            method: "GET",
+            url: "/api/operations/rm",
+            onSuccess: (data, response) => {
+                if (!response.ok) {
+                    return failure(data.message);
+                } else {
+                    return success(data);
+                }
+            },
+            onFailure: (error) => {
+               return failure(error.message);
+            },
+
+        }));
+
+    };
+
+
+    function request() { return { type: RM_OPERAITION_GETALL_REQUEST }; }
+    function success(payload: any) { return { type: RM_OPERAITION_GETALL_SUCCESS, payload }; }
+    function failure(error: any) { return { type: RM_OPERAITION_GETALL_FAILURE, error }; }
+
+}
+
+
+

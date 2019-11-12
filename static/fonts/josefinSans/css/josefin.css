@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'josefin';
+    src: url('../font/josefin.eot');
+    src: url('../font/josefin?#iefix') format('embedded-opentype'),
+         url('../font/josefin.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    -moz-font-feature-settings: "calt=0,liga=0";
+}

@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": { "*": ["types/*"] },
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "esModuleInterop": true ,
+        "module": "commonjs",
+        "target": "es2018",
+        "jsx": "react"
+    },
+    "exclude": ["node_modules","dist","static","config"],
+    "include": [
+        "./src/**/*"
+    ]
+}
